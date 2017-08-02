@@ -40,14 +40,28 @@ class Main {
     }
 
     void binarySearch() {
+        int l = 0;
+        int r = SIZE - 1;
+        int currPos;
 
+        while (l <= r) {
+            currPos = (l + r) / 2;
+            if (mass[currPos] == elementToFind) {
+                elementNumber = currPos;
+                break;
+            }
+            else if (mass[currPos] > elementToFind)
+                r = currPos - 1;
+            else
+                l = currPos + 1;
+        }
     }
 
     void displayResult() {
         if (elementNumber == -1)
             System.out.println("There is no such element in the massive.");
         else
-            System.out.println("Element's number - " + elementNumber);
+            System.out.println("Element's number - " + ++elementNumber);
 
     }
 }
